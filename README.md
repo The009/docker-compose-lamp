@@ -33,6 +33,7 @@ As of now, we have several different PHP versions. Use appropriate php version a
 ```shell
 git clone https://github.com/sprintcube/docker-compose-lamp.git
 cd docker-compose-lamp/
+echo "MYSQL_ROOT_PASSWORD=$(tr -dc a-zA-Z0-9_.- </dev/urandom | head -c 16 ; echo)" >> sample.env
 cp sample.env .env
 // modify sample.env as needed
 docker compose up -d
