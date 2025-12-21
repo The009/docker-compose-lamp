@@ -1,10 +1,8 @@
-version: "3"
-
 services:
   webserver:
     build:
-      context: ./bin/${PHPVERSION}
-    container_name: "${COMPOSE_PROJECT_NAME}-${PHPVERSION}"
+      context: ./bin/${PHP_VERSION}
+    container_name: "${COMPOSE_PROJECT_NAME}-${PHP_VERSION}"
     restart: "always"
     ports:
       - "${HOST_MACHINE_UNSECURE_HOST_PORT}:80"

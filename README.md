@@ -40,7 +40,7 @@ docker compose up -d
 // visit localhost
 ```
 
-Your LAMP stack is now ready!! You can access it via `http://localhost`.
+Your LAMP stack is now ready!! You can access it via `http://<Server_Address>`.
 
 ## Configuration and Usage
 
@@ -55,19 +55,19 @@ To make it easy, just copy the content from `sample.env` file and update the env
 
 ### Configuration Variables
 
-There are following configuration variables available and you can customize them by overwritting in your own `.env` file.
+There are following configuration variables available and you can customize them by overwriting in your own `.env` file.
 
 ---
 
-#### PHP
+#### PHP SERVER
 
 ---
 
-_**PHPVERSION**_
+_**PHP_VERSION**_
 Is used to specify which PHP Version you want to use. Defaults always to latest PHP Version.
 
 _**PHP_INI**_
-Define your custom `php.ini` modification to meet your requirments.
+Define your custom `php.ini` modification to meet your requirements.
 
 ---
 
@@ -122,7 +122,7 @@ This will be used to store Apache logs. The default value for this is `./logs/my
 
 _**MYSQL_CNF**_
 
-Define your custom `my.cnf` modifications to meet your database requirments.
+Define your custom `my.cnf` modifications to meet your database requirements.
 
 **Note:**
 When providing "host" value to the application, eg. wordpress, please use the value `database` where we generally use `localhost`
@@ -131,7 +131,7 @@ When providing "host" value to the application, eg. wordpress, please use the va
 
 Apache is configured to run on port 80. So, you can access it via `http://localhost`.
 
-#### Apache Modules
+### Apache Modules
 
 By default following modules are enabled.
 
@@ -149,11 +149,7 @@ You can connect to web server using `docker compose exec` command to perform var
 docker compose exec webserver bash
 ```
 
-## PHP
-
-The installed version of php depends on your `.env`file.
-
-#### Extensions
+## Extensions
 
 By default following extensions are installed.
 May differ for PHP Versions <7.x.x
@@ -179,9 +175,9 @@ May differ for PHP Versions <7.x.x
 
 phpMyAdmin is configured to run on port 8080. Use following default credentials.
 
-http://localhost:8080/  
+http://<Server_IP>:8080/  
 username: root  
-password: tiger
+password: Is generated at random, check .env
 
 ## Xdebug
 
@@ -197,7 +193,7 @@ To use Xdebug you need to enable the settings in the `./config/php/php.ini` file
 
 Example:
 
-```
+```text
 # Xdebug 2
 #xdebug.remote_enable=1
 #xdebug.remote_autostart=1
@@ -254,7 +250,7 @@ Support for `https` domains is built-in but disabled by default. There are 3 way
 
 ### 1) HTTPS on Localhost
 
-To enable `https` on `localhost` (https://localhost) you will need to:
+To enable `https` on `localhost` (https://<Server_Address>) you will need to:
 
 1. Use a tool like [mkcert](https://github.com/FiloSottile/mkcert#installation) to create an SSL certificate for `localhost`:
    - With `mkcert`, in the terminal run `mkcert localhost 127.0.0.1 ::1`.
