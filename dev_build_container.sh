@@ -74,7 +74,7 @@ build () {
 
 buildenvfile () {
 
-cat sample.env > ./buildtest/"$buildtarget"-"$version".env
+cat .env > ./buildtest/"$buildtarget"-"$version".env
 sed -i "s/COMPOSE_PROJECT_NAME=lamp/COMPOSE_PROJECT_NAME=$buildtarget-buildtest/" ./buildtest/"$buildtarget"-"$version".env
 sed -i "s/PHP_VERSION=php8/PHP_VERSION=$buildtarget/" ./buildtest/"$buildtarget"-"$version".env
 sed -i "s/DATABASE=mysql8/DATABASE=$version/" ./buildtest/"$buildtarget"-"$version".env

@@ -30,16 +30,18 @@ As of now, we have several different PHP versions. Use appropriate php version a
 - configure .env as needed
 - Run the `docker compose up -d`.
 
-```shell
+```bash
 git clone https://github.com/sprintcube/docker-compose-lamp.git
 cd docker-compose-lamp/
 echo "MYSQL_ROOT_PASSWORD=$(tr -dc a-zA-Z0-9_.- </dev/urandom | head -c 16 ; echo)" >> sample.env
 cp sample.env .env
-// modify sample.env as needed
+nano .env //Modify to fit your needs. 
 docker compose up -d
-// visit localhost
 ```
 
+## Test Your Server
+
+http://<Server_IP> or http://<Server_IP>:<HOST_MACHINE_UNSECURE_HOST_PORT>
 Your LAMP stack is now ready!! You can access it via `http://<Server_Address>`.
 
 ## Configuration and Usage
