@@ -46,7 +46,7 @@ build () {
                 curlmysqli=$(curl -s --max-time 15 --connect-timeout 15 http://localhost/test_db.php |grep proper |wc -l |tr -d '[:space:]')
                 curlpdo=$(curl -s --max-time 15 --connect-timeout 15 http://localhost/test_db_pdo.php |grep proper |wc -l |tr -d '[:space:]')
 
-                        # check if we can create a successfull connection to the database
+                        # check if we can create a successful connection to the database
                         # 1=OK  everything else is not ok
                         if [ "$curlmysqli" -ne "1" ]; then
                                 echo -e "### ERROR: myqli database check failed expected string 'proper' not found \n"
@@ -54,7 +54,7 @@ build () {
                                 $dc --env-file ./buildtest/$buildtarget-$version.env down
                                 exit
                         else
-                                echo -e "\n OK - mysqli database check successfull \n"
+                                echo -e "\n OK - mysqli database check successful \n"
                                 sleep 3
                         fi
 
@@ -64,7 +64,7 @@ build () {
                                 $dc --env-file ./buildtest/$buildtarget-$version.env down
                                 exit
                         else
-                                echo -e "\n OK - pdo database check successfull \n"
+                                echo -e "\n OK - pdo database check successful \n"
                                 sleep 3
                         fi
 

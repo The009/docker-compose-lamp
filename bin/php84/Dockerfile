@@ -1,6 +1,6 @@
-FROM php:8.4-apache-bookworm
+FROM php:8.4-fpm-bookworm
 
-# Surpresses debconf complaints of trying to install apt packages interactively
+# Suppresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
  
 ARG DEBIAN_FRONTEND=noninteractive
@@ -13,7 +13,7 @@ RUN apt-get -y update --fix-missing && \
 
 RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
-# Install useful tools and install important libaries
+# Install useful tools and install important libraries
 RUN apt-get -y update && \
     apt-get -y --no-install-recommends install nano wget \
 dialog \

@@ -54,7 +54,7 @@ To make it easy, just copy the content from `sample.env` file and update the env
 
 ### Configuration Variables
 
-There are following configuration variables available and you can customize them by overwritting in your own `.env` file.
+There are following configuration variables available and you can customize them by overwriting in your own `.env` file.
 
 ---
 
@@ -66,7 +66,7 @@ _**PHPVERSION**_
 Is used to specify which PHP Version you want to use. Defaults always to latest PHP Version.
 
 _**PHP_INI**_
-Define your custom `php.ini` modification to meet your requirments.
+Define your custom `php.ini` modification to meet your requirements.
 
 ---
 
