@@ -16,7 +16,8 @@ RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 # Install useful tools and install important libraries
 RUN apt-get -y update && \
     apt-get -y --no-install-recommends install nano wget \
-dialog \
+libapache2-mod-fcgid \
+    dialog \
 libsqlite3-dev \
 libsqlite3-0 && \
     apt-get -y --no-install-recommends install default-mysql-client \
@@ -92,10 +93,9 @@ libpng-dev && \
 RUN mkdir -p /etc/apache2/ssl
 
 # Enable SSL support
-RUN a2enmod ssl && a2enmod rewrite
+RUN a2enmod mpm_event fcgid proxy_fcgi headers rewrite
 
 # Enable apache modules
-RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*
