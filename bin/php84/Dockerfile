@@ -93,9 +93,10 @@ libpng-dev && \
 RUN mkdir -p /etc/apache2/ssl
 
 # Enable SSL support
-RUN a2enmod mpm_event fcgid proxy_fcgi headers rewrite
+RUN a2enmod mpm_event && a2enmod fcgid && a2enmod proxy_fcgi && a2enmod headers && a2enmod rewrite
 
 # Enable apache modules
+RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*

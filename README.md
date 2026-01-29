@@ -58,7 +58,7 @@ There are following configuration variables available and you can customize them
 
 ---
 
-#### PHP
+#### PHP Configuration
 
 ---
 
@@ -121,7 +121,7 @@ This will be used to store Apache logs. The default value for this is `./logs/my
 
 _**MYSQL_CNF**_
 
-Define your custom `my.cnf` modifications to meet your database requirments.
+Define your custom `my.cnf` modifications to meet your database requirements.
 
 **Note:**
 When providing "host" value to the application, eg. wordpress, please use the value `database` where we generally use `localhost`
@@ -130,7 +130,7 @@ When providing "host" value to the application, eg. wordpress, please use the va
 
 Apache is configured to run on port 80. So, you can access it via `http://localhost`.
 
-#### Apache Modules
+### Apache Modules
 
 By default following modules are enabled.
 
@@ -152,7 +152,7 @@ docker compose exec webserver bash
 
 The installed version of php depends on your `.env`file.
 
-#### Extensions
+### Extensions
 
 By default following extensions are installed.
 May differ for PHP Versions <7.x.x
@@ -178,7 +178,7 @@ May differ for PHP Versions <7.x.x
 
 phpMyAdmin is configured to run on port 8080. Use following default credentials.
 
-http://localhost:8080/  
+http://<ip_address>:8080/  
 username: root  
 password: tiger
 
@@ -196,7 +196,7 @@ To use Xdebug you need to enable the settings in the `./config/php/php.ini` file
 
 Example:
 
-```
+``` text
 # Xdebug 2
 #xdebug.remote_enable=1
 #xdebug.remote_autostart=1
@@ -253,7 +253,7 @@ Support for `https` domains is built-in but disabled by default. There are 3 way
 
 ### 1) HTTPS on Localhost
 
-To enable `https` on `localhost` (https://localhost) you will need to:
+To enable `https` on `localhost` (https://<ip_address>) you will need to:
 
 1. Use a tool like [mkcert](https://github.com/FiloSottile/mkcert#installation) to create an SSL certificate for `localhost`:
    - With `mkcert`, in the terminal run `mkcert localhost 127.0.0.1 ::1`.
